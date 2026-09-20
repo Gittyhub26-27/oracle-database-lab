@@ -1,6 +1,6 @@
 # Laboratorio 1: Git Fundamentals - Respuestas de Comprobación
 
-**Alumno:** Bruno Campa-Santamarina Díaz  
+**Alumno:** Bruno C  
 **Asignatura:** Administración de Bases de Datos  
 **Curso académico:** 2026-2027  
 
