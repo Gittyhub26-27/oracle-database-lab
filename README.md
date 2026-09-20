@@ -1,5 +1,4 @@
 /# Oracle Database Lab — Academic Version
-nueva versión editada
 
 Training repository for Oracle Database administration,
 
