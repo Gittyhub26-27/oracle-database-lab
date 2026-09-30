@@ -328,4 +328,446 @@ $ [7mgit add scripts/deployment/env/02-verificar-docker.sh "$EVID/script/"*_02-
 $ [7msource scripts/deployment/env/00-config.sh[27m
 [7mscript -q "$EVID/script/$(ts)_03-tutorial-docker.script.log"[27m[A[C[Csource scripts/deployment/env/00-config.sh
 script -q "$EVID/script/$(ts)_03-tutorial-docker.script.log"
-[?2004l[?2004h[1;32mnight
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mgit add "$EVID/script/"*_03-tutorial-docker.script.log[27m
+[7mgit commit -m "docs(env): record guided Docker practice session Refs #3"[27m[A[C[Cgit add "$EVID/script/"*_03-tutorial-docker.script.log
+git commit -m "docs(env): record guided Docker practice session Refs #3"
+[?2004l[chore/3-install-oracle-environment 2d038c4] docs(env): record guided Docker practice session Refs #3
+ 2 files changed, 331 insertions(+)
+ create mode 100644 docs/bitacora/evidencia/script/20260930T154950Z_03-tutorial-docker.script.log
+ create mode 100644 docs/bitacora/evidencia/script/20260930T155759Z_03-tutorial-docker.script.log
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mcd ~/oracle-database-lab[27m
+[7msource scripts/deployment/env/00-config.sh[27m
+[7mscript -q "$EVID/script/$(ts)_03-tutorial-docker.script.log"[27m[A[A[C[Ccd ~/oracle-database-lab
+source scripts/deployment/env/00-config.sh
+script -q "$EVID/script/$(ts)_03-tutorial-docker.script.log"
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker version[27m[C[Cdocker version
+[?2004lClient:
+ Version:           29.8.1
+ API version:       1.56
+ Go version:        go1.26.8
+ Git commit:        4a63305
+ Built:             Tue Sep 15 16:24:42 2026
+ OS/Arch:           linux/amd64
+ Context:           default
+
+Server: Docker Desktop 4.93.0 (240920)
+ Engine:
+  Version:          29.8.1
+  API version:      1.56 (minimum version 1.40)
+  Go version:       go1.26.8
+  Git commit:       464cd50
+  Built:            Tue Sep 15 16:25:38 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          v2.3.5
+  GitCommit:        1294c24a7da8e5a793ed378161673abe94118892
+ runc:
+  Version:          1.5.1
+  GitCommit:        v1.5.1-0-g8f2685a4
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker info[27m[C[Cdocker info
+[?2004lClient:
+ Version:    29.8.1
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  agent: Docker AI Agent Runner (Docker Inc.)
+    Version:  v1.141.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-agent
+  ai: Docker AI Agent - Ask Gordon (Docker Inc.)
+    Version:  v1.31.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-ai
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.37.1
+    Path:     /usr/local/lib/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.5.1
+    Path:     /usr/local/lib/docker/cli-plugins/docker-compose
+  debug: Get a shell into any image or container (Docker Inc.)
+    Version:  0.0.47
+    Path:     /usr/local/lib/docker/cli-plugins/docker-debug
+  desktop: Docker Desktop commands (Docker Inc.)
+    Version:  v0.4.4
+    Path:     /usr/local/lib/docker/cli-plugins/docker-desktop
+  dhi: CLI for managing Docker Hardened Images (Docker Inc.)
+    Version:  v0.0.7
+    Path:     /usr/local/lib/docker/cli-plugins/docker-dhi
+  extension: Manages Docker extensions (Docker Inc.)
+    Version:  v0.2.31
+    Path:     /usr/local/lib/docker/cli-plugins/docker-extension
+  init: Creates Docker-related starter files for your project (Docker Inc.)
+    Version:  v1.4.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-init
+  mcp: Docker MCP Plugin (Docker Inc.)
+    Version:  v0.43.3
+    Path:     /usr/local/lib/docker/cli-plugins/docker-mcp
+  model: Docker Model Runner (Docker Inc.)
+    Version:  v1.2.6
+    Path:     /usr/local/lib/docker/cli-plugins/docker-model
+  offload: Docker Offload (Docker Inc.)
+    Version:  v0.6.33
+    Path:     /usr/local/lib/docker/cli-plugins/docker-offload
+  pass: Docker Pass Secrets Manager Plugin (beta) (Docker Inc.)
+    Version:  v0.2.2
+    Path:     /usr/local/lib/docker/cli-plugins/docker-pass
+  sandbox: "docker sandbox" is deprecated, use Docker Sandboxes instead (Docker Inc.)
+    Version:  v0.13.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-sandbox
+  scout: Docker Scout (Docker Inc.)
+    Version:  v1.24.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-scout
+
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 1
+ Server Version: 29.8.1
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Discovered Devices:
+  cdi: docker.com/gpu=webgpu
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 nvidia runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 1294c24a7da8e5a793ed378161673abe94118892
+ runc version: v1.5.1-0-g8f2685a4
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.18.33.2-microsoft-standard-WSL2
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 8
+ Total Memory: 3.716GiB
+ Name: docker-desktop
+ ID: 4a8f097c-3e12-4a4f-bd2c-3f30472851bd
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ HTTP Proxy: http.docker.internal:3128
+ HTTPS Proxy: http.docker.internal:3128
+ No Proxy: hubproxy.docker.internal
+ Labels:
+  com.docker.desktop.address=unix:///var/run/docker-cli.sock
+ Experimental: false
+ Insecure Registries:
+  hubproxy.docker.internal:5555
+  127.0.0.0/8
+  ::1/128
+ Live Restore Enabled: false
+ Firewall Backend: iptables
+
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker run hello-world[27m[C[Cdocker run hello-world
+[?2004l
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker ps[27m[C[Cdocker ps
+[?2004lCONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker ps -a[27m[C[Cdocker ps -a
+[?2004lCONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+44dcc96a9113   hello-world   "/hello"   34 seconds ago   Exited (0) 34 seconds ago             youthful_jackson
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker pull alpine:3.20[27m[C[Cdocker pull alpine:3.20
+[?2004l3.20: Pulling from library/alpine
+
+[1A[2K25f1d6b1951a: Pulling fs layer [1B
+[1A[2K3a030ca3f633: Download complete [1B
+[1A[2Kd4050d56ebf2: Download complete [1B[3A[2K25f1d6b1951a: Downloading [==============>                                    ]  1.049MB/3.63MB[3B[3A[2K25f1d6b1951a: Downloading [==============>                                    ]  1.049MB/3.63MB[3B[3A[2K25f1d6b1951a: Downloading [==============>                                    ]  1.049MB/3.63MB[3B[3A[2K25f1d6b1951a: Downloading [==============>                                    ]  1.049MB/3.63MB[3B[3A[2K25f1d6b1951a: Downloading [==============>                                    ]  1.049MB/3.63MB[3B[3A[2K25f1d6b1951a: Downloading [==============>                                    ]  1.049MB/3.63MB[3B[3A[2K25f1d6b1951a: Downloading [============================>                      ]  2.097MB/3.63MB[3B[3A[2K25f1d6b1951a: Downloading [============================>                      ]  2.097MB/3.63MB[3B[3A[2K25f1d6b1951a: Downloading [============================>                      ]  2.097MB/3.63MB[3B[3A[2K25f1d6b1951a: Downloading [===========================================>       ]  3.146MB/3.63MB[3B[3A[2K25f1d6b1951a: Download complete [3B[3A[2K25f1d6b1951a: Extracting 1 s[3B[3A[2K25f1d6b1951a: Extracting 1 s[3B[3A[2K25f1d6b1951a: Pull complete [3BDigest: sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+Status: Downloaded newer image for alpine:3.20
+docker.io/library/alpine:3.20
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker images[27m[C[Cdocker images
+[?2004l                                                                                                    [1m[106m[30mi[0m[0m [96mInfo → [0m[0m [38;5;0m[48;5;14m U [0m In Use
+[39m[1mIMAGE[0m                [39m[1mID[0m             [39m[1mDISK USAGE[0m   [39m[1mCONTENT SIZE[0m   [39m[1mEXTRA[0m
+[34m[1malpine:3.20[0m          [39md9e853e87e55[0m       [39m12.2MB[0m         [39m3.71MB[0m        
+[34m[1mhello-world:latest[0m   [39m5e2309035332[0m       [39m25.9kB[0m         [39m9.49kB[0m   [38;5;0m[48;5;14m U [0m  
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker run -it --name prueba alpine:3.20 sh[27m[C[Cdocker run -it --name prueba alpine:3.20 sh
+[?2004l/ # [6n
+/ # [6ncat /etc/os-release
+NAME="Alpine Linux"
+ID=alpine
+VERSION_ID=3.20.10
+PRETTY_NAME="Alpine Linux v3.20"
+HOME_URL="https://alpinelinux.org/"
+BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+/ # hostname
+a4d3f9b49db4
+/ # ls /
+[1;34mbin[m    [1;34mdev[m    [1;34metc[m    [1;34mhome[m   [1;34mlib[m    [1;34mmedia[m  [1;34mmnt[m    [1;34mopt[m    [1;34mproc[m   [1;34mroot[m   [1;34mrun[m    [1;34msbin[m   [1;34msrv[m    [1;34msys[m    [1;34mtmp[m    [1;34musr[m    [1;34mvar[m
+/ # exit
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker ps -a --filter "name=prueba"[27m[C[Cdocker ps -a --filter "name=prueba"
+[?2004lCONTAINER ID   IMAGE         COMMAND   CREATED         STATUS                     PORTS     NAMES
+a4d3f9b49db4   alpine:3.20   "sh"      5 minutes ago   Exited (0) 5 seconds ago             prueba
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker start -ai prueba[27m[C[Cdocker start -ai prueba
+[?2004l/ # [6necho "dato importante" > /tmp/nota.txt
+/ # [6ncat /tmp/nota.txt
+dato importante
+/ # [6nexit
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker rm prueba[27m[C[Cdocker rm prueba
+[?2004lprueba
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker run -it --name prueba2 alpine:3.20 sh[27m[C[Cdocker run -it --name prueba2 alpine:3.20 sh
+[?2004l/ # [6ncat /tmp/nota.txt
+cat: can't open '/tmp/nota.txt': No such file or directory
+/ # [6nexit
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7m# 1. Crear el volumen con nombre[27m
+[7mdocker volume create datos-prueba[27m
+
+[7m# 2. Arrancar un contenedor, escribir el archivo dentro y salir[27m
+[7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m
+[7m# (Dentro del contenedor escribe:)[27m
+[7m# echo "dato importante" > /datos/nota.txt[27m
+[7m# exit[27m
+
+[7m# 3. Arrancar un segundo contenedor nuevo y comprobar que el dato sigue ahí[27m
+[7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m
+[7m# (Dentro del contenedor escribe:)[27m
+[7m# cat /datos/nota.txt[27m
+[7m# exit[27m
+
+[7m# 4. Listar y comprobar los detalles del volumen en el sistema de Docker[27m
+[7mdocker volume ls[27m
+[7mdocker volume inspect datos-prueba[27m[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[C[C# 1. Crear el volumen con nombre
+docker volume create datos-prueba
+
+# 2. Arrancar un contenedor, escribir el archivo dentro y salir
+docker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
+# (Dentro del contenedor escribe:)
+# echo "dato importante" > /datos/nota.txt
+# exit
+
+# 3. Arrancar un segundo contenedor nuevo y comprobar que el dato sigue ahí
+docker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
+# (Dentro del contenedor escribe:)
+# cat /datos/nota.txt
+# exit
+
+# 4. Listar y comprobar los detalles del volumen en el sistema de Docker
+docker volume ls
+docker volume inspect datos-prueba
+[?2004ldatos-prueba
+/ # [6nexit
+/ # [6n
+/ # [6n
+/ # [6nexit
+DRIVER    VOLUME NAME
+local     datos-prueba
+[
+    {
+        "CreatedAt": "2026-09-30T16:20:22Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/datos-prueba/_data",
+        "Name": "datos-prueba",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker volume create datos-prueba[27m
+[7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m
+[7mecho "dato importante" > /datos/nota.txt[27m
+[7mexit[27m
+[7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m
+[7mcat /datos/nota.txt[27m
+[7mexit[27m
+[7mdocker volume ls[27m
+[7mdocker volume inspect datos-prueba[27m[A[A[A[A[A[A[A[A[C[Cdocker volume create datos-prueba
+docker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
+echo "dato importante" > /datos/nota.txt
+exit
+docker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
+cat /datos/nota.txt
+exit
+docker volume ls
+docker volume inspect datos-prueba
+[?2004ldatos-prueba
+/ # [6nexit
+bash: /datos/nota.txt: No such file or directory
+exit
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker volume create datos-prueba[27m
+[7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m
+[7mecho "dato importante" > /datos/nota.txt[27m
+[7mexit[27m
+[7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m
+[7mcat /datos/nota.txt[27m[A[A[A[A[A[C[Cdocker volume create datos-prueba
+docker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
+echo "dato importante" > /datos/nota.txt
+exit
+docker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
+cat /datos/nota.txt
+[?2004ldatos-prueba
+/ # [6nexit
+bash: /datos/nota.txt: No such file or directory
+exit
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker volume create datos-prueba[27m[C[Cdocker volume create datos-prueba
+[?2004ldatos-prueba
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m
+[A[C[Cdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
+[A
+[?2004l/ # [6necho "dato importante" > /datos/nota.txt
+/ # [6nexit
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m
+[A[C[Cdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
+[A
+[?2004l/ # [6ncat /datos/nota.txt
+dato importante
+/ # [6nexit
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker volume ls[27m
+[7mdocker volume inspect datos-prueba[27m[A[C[Cdocker volume ls
+docker volume inspect datos-prueba
+[?2004lDRIVER    VOLUME NAME
+local     datos-prueba
+[
+    {
+        "CreatedAt": "2026-09-30T16:20:22Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/datos-prueba/_data",
+        "Name": "datos-prueba",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker run -d --name web -p 8080:80 nginx:alpine[27m[C[Cdocker run -d --name web -p 8080:80 nginx:alpine
+[?2004lUnable to find image 'nginx:alpine' locally
+alpine: Pulling from library/nginx
+
+[1A[2Ke76228b47809: Pulling fs layer [1B
+[1A[2K745dfb2690dd: Pulling fs layer [1B
+[1A[2Ke72112c14215: Pulling fs layer [1B
+[1A[2Ke2de96513ba9: Pulling fs layer [1B
+[1A[2K64c8194480fe: Pulling fs layer [1B
+[1A[2Kd9aae54b5831: Pulling fs layer [1B
+[1A[2K6c53d0b2a666: Pulling fs layer [1B
+[1A[2K9a9a644fdd6a: Pulling fs layer [1B
+[1A[2K0deea27e58d9: Download complete [1B[8A[2K745dfb2690dd: Download complete [8B[9A[2Ke76228b47809: Download complete [9B
+[1A[2Kd54d3939625e: Download complete [1B[8A[2Ke72112c14215: Downloading [==>                                                ]  1.049MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [==>                                                ]  1.049MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [==>                                                ]  1.049MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [=====>                                             ]  2.097MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [=======>                                           ]  3.146MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [=======>                                           ]  3.146MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [=======>                                           ]  3.146MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [=======>                                           ]  3.146MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [=======>                                           ]  3.146MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [============>                                      ]  5.243MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [=================>                                 ]   7.34MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [=================>                                 ]   7.34MB/20.53MB[8B[5A[2Kd9aae54b5831: Downloading [===========================>                       ]  1.049MB/1.931MB[5B[8A[2Ke72112c14215: Downloading [======================>                            ]  9.437MB/20.53MB[8B[5A[2Kd9aae54b5831: Downloading [===========================>                       ]  1.049MB/1.931MB[5B[8A[2Ke72112c14215: Downloading [=========================>                         ]  10.49MB/20.53MB[8B[5A[2Kd9aae54b5831: Downloading [===========================>                       ]  1.049MB/1.931MB[5B[8A[2Ke72112c14215: Downloading [=========================>                         ]  10.49MB/20.53MB[8B[5A[2Kd9aae54b5831: Downloading [===========================>                       ]  1.049MB/1.931MB[5B[5A[2Kd9aae54b5831: Downloading [===========================>                       ]  1.049MB/1.931MB[5B[8A[2Ke72112c14215: Downloading [==============================>                    ]  12.58MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [=================================>                 ]  13.63MB/20.53MB[8B[5A[2Kd9aae54b5831: Download complete [5B[8A[2Ke72112c14215: Downloading [======================================>            ]  15.73MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [===========================================>       ]  17.83MB/20.53MB[8B[8A[2Ke72112c14215: Downloading [================================================>  ]  19.92MB/20.53MB[8B[8A[2Ke72112c14215: Download complete [8B[3A[2K9a9a644fdd6a: Download complete [3B[4A[2K6c53d0b2a666: Download complete [4B[6A[2K64c8194480fe: Download complete [6B[7A[2Ke2de96513ba9: Downloading [=============>                                     ]  1.049MB/3.85MB[7B[7A[2Ke2de96513ba9: Downloading [=============>                                     ]  1.049MB/3.85MB[7B[7A[2Ke2de96513ba9: Downloading [=============>                                     ]  1.049MB/3.85MB[7B[7A[2Ke2de96513ba9: Downloading [=============>                                     ]  1.049MB/3.85MB[7B[7A[2Ke2de96513ba9: Downloading [=============>                                     ]  1.049MB/3.85MB[7B[7A[2Ke2de96513ba9: Downloading [=============>                                     ]  1.049MB/3.85MB[7B[7A[2Ke2de96513ba9: Downloading [===========================>                       ]  2.097MB/3.85MB[7B[7A[2Ke2de96513ba9: Downloading [===========================>                       ]  2.097MB/3.85MB[7B[7A[2Ke2de96513ba9: Downloading [===========================>                       ]  2.097MB/3.85MB[7B[7A[2Ke2de96513ba9: Downloading [===========================>                       ]  2.097MB/3.85MB[7B[7A[2Ke2de96513ba9: Downloading [========================================>          ]  3.146MB/3.85MB[7B[7A[2Ke2de96513ba9: Downloading [========================================>          ]  3.146MB/3.85MB[7B[7A[2Ke2de96513ba9: Download complete [7B[7A[2Ke2de96513ba9: Extracting 1 s[7B[5A[2Kd9aae54b5831: Extracting 1 s[5B[7A[2Ke2de96513ba9: Pull complete [7B[9A[2K745dfb2690dd: Pull complete [9B[5A[2Kd9aae54b5831: Pull complete [5B[3A[2K9a9a644fdd6a: Pull complete [3B[4A[2K6c53d0b2a666: Pull complete [4B[10A[2Ke76228b47809: Pull complete [10B[8A[2Ke72112c14215: Extracting 1 s[8B[6A[2K64c8194480fe: Pull complete [6B[8A[2Ke72112c14215: Extracting 1 s[8B[8A[2Ke72112c14215: Extracting 1 s[8B[8A[2Ke72112c14215: Extracting 1 s[8B[8A[2Ke72112c14215: Pull complete [8BDigest: sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1abeac2
+Status: Downloaded newer image for nginx:alpine
+8d6c73311de6642502c1ccaf3f9489f0250fafaeb9627ac893d53ce1506f402c
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker volume create datos-prueba[27m[C[Cdocker volume create datos-prueba
+[?2004ldatos-prueba
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m[C[Cdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
+[?2004l/ # [6necho "dato importante" > /datos/nota.txt
+/ # [6nexit
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m[C[Cdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
+[?2004l/ # [6ncat /datos/nota.txt
+dato importante
+/ # [6nexit
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker volume ls[27m[C[Cdocker volume ls
+[?2004lDRIVER    VOLUME NAME
+local     datos-prueba
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker volume inspect datos-prueba[27m[C[Cdocker volume inspect datos-prueba
+[?2004l[
+    {
+        "CreatedAt": "2026-09-30T16:20:22Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/datos-prueba/_data",
+        "Name": "datos-prueba",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker run -d --name web -p 8080:80 nginx:alpine[27m[C[Cdocker run -d --name web -p 8080:80 nginx:alpine
+[?2004ldocker: Error response from daemon: Conflict. The container name "/web" is already in use by container "8d6c73311de6642502c1ccaf3f9489f0250fafaeb9627ac893d53ce1506f402c". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker rm -f web 2>/dev/null[27m[C[Cdocker rm -f web 2>/dev/null
+[?2004lweb
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker run -d --name web -p 8080:80 nginx:alpine[27m[C[Cdocker run -d --name web -p 8080:80 nginx:alpine
+[?2004le0bc7d1faf79308ab67b4c31aeff94233bb7d2f6b35334a97b965ab7ea480a23
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker ps[27m[C[Cdocker ps
+[?2004lCONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                                     NAMES
+e0bc7d1faf79   nginx:alpine   "/docker-entrypoint.…"   4 seconds ago   Up 3 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   web
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker port web[27m[C[Cdocker port web
+[?2004l80/tcp -> 0.0.0.0:8080
+80/tcp -> [::]:8080
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker stop web[27m[C[Cdocker stop web
+[?2004lweb
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker rm web prueba2 $(docker ps -aq --filter "ancestor=hello-world") 2>/dev/null || true[27m[C[Cdocker rm web prueba2 $(docker ps -aq --filter "ancestor=hello-world") 2>/dev/null || true
+[?2004lweb
+prueba2
+44dcc96a9113
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker volume rm datos-prueba 2>/dev/null || true[27m[C[Cdocker volume rm datos-prueba 2>/dev/null || true
+[?2004ldatos-prueba
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mdocker system df[27m[C[Cdocker system df
+[?2004lTYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          3         0         106.7MB   106.6MB (99%)
+Containers      0         0         0B        0B
+Local Volumes   0         0         0B        0B
+Build Cache     0         0         0B        0B
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ [7mexit[27m[C[Cexit
+[?2004lexit
+
+Script done on 2026-09-30 18:30:47+02:00 [COMMAND_EXIT_CODE="0"]

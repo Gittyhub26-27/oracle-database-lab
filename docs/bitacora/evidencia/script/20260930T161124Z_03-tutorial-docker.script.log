@@ -1,19 +1,5 @@
-Script started on 2026-09-30 17:57:59+02:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="120" LINES="30"]
+Script started on 2026-09-30 18:11:24+02:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="120" LINES="30"]
 [?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
-$ [7mgit add "$EVID/script/"*_03-tutorial-docker.script.log[27m
-[7mgit commit -m "docs(env): record guided Docker practice session Refs #3"[27m[A[C[Cgit add "$EVID/script/"*_03-tutorial-docker.script.log
-git commit -m "docs(env): record guided Docker practice session Refs #3"
-[?2004l[chore/3-install-oracle-environment 2d038c4] docs(env): record guided Docker practice session Refs #3
- 2 files changed, 331 insertions(+)
- create mode 100644 docs/bitacora/evidencia/script/20260930T154950Z_03-tutorial-docker.script.log
- create mode 100644 docs/bitacora/evidencia/script/20260930T155759Z_03-tutorial-docker.script.log
-[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
-$ [7mcd ~/oracle-database-lab[27m
-[7msource scripts/deployment/env/00-config.sh[27m
-[7mscript -q "$EVID/script/$(ts)_03-tutorial-docker.script.log"[27m[A[A[C[Ccd ~/oracle-database-lab
-source scripts/deployment/env/00-config.sh
-script -q "$EVID/script/$(ts)_03-tutorial-docker.script.log"
-[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
 $ [7mdocker version[27m[C[Cdocker version
 [?2004lClient:
  Version:           29.8.1
@@ -305,21 +291,5 @@ $ [7mdocker volume create datos-prueba[27m
 / # [6nexit
 bash: /datos/nota.txt: No such file or directory
 exit
-[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
-$ [7mdocker volume create datos-prueba[27m
-[7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m
-[7mecho "dato importante" > /datos/nota.txt[27m
-[7mexit[27m
-[7mdocker run -it --rm -v datos-prueba:/datos alpine:3.20 sh[27m
-[7mcat /datos/nota.txt[27m[A[A[A[A[A[C[Cdocker volume create datos-prueba
-docker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
-echo "dato importante" > /datos/nota.txt
-exit
-docker run -it --rm -v datos-prueba:/datos alpine:3.20 sh
-cat /datos/nota.txt
-[?2004ldatos-prueba
-/ # [6nexit
-bash: /datos/nota.txt: No such file or directory
-exit
 
-Script done on 2026-09-30 18:22:01+02:00 [COMMAND_EXIT_CODE="1"]
+Script done on 2026-09-30 18:21:49+02:00 [COMMAND_EXIT_CODE="1"]
