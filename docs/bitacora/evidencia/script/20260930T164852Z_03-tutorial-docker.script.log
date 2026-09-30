@@ -1,0 +1,202 @@
+Script started on 2026-09-30 18:48:52+02:00 [<not executed on terminal>]
+
+# 2. Comprobación inicial (5.8.2 y 5.8.3)
+docker version
+docker info
+docker run hello-world
+docker ps -a
+
+# 3. Imágenes y contenedores interactivos (5.8.4 a 5.8.6)
+docker pull alpine:3.20
+docker images
+docker run -it --name prueba alpine:3.20 sh -c 'cat /etc/os-release; hostname; ls /'
+docker run -it --name prueba2 alpine:3.20 sh -c 'echo "dato importante" > /tmp/nota.txt; cat /tmp/nota.txt'
+docker rm prueba prueba2
+
+# 4. Volúmenes y Redes (5.8.7)
+docker volume create datos-prueba
+docker run --rm -v datos-prueba:/datos alpine:3.20 sh -c 'echo "dato importante" > /datos/nota.txt'
+docker run --rm -v datos-prueba:/datos alpine:3.20 sh -c 'cat /datos/nota.txt'
+docker volume ls
+docker volume inspect datos-prueba
+
+# 5. Aplicaciones web y logs (5.8.8 y 5.8.9)
+docker run -d --name web -p 8080:80 nginx:alpine
+docker ps
+docker port web
+docker logs web
+docker logs --tail 3 web
+docker exec web ls /usr/share/nginx/html
+docker stats --no-stream web
+
+# 6. Limpieza final (5.8.10)
+docker stop web
+docker rm web
+docker volume rm datos-prueba
+docker system df
+
+exit
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ 
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ # 2. Comprobación inicial (5.8.2 y 5.8.3)
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker version
+[?2004lClient:
+ Version:           29.8.1
+ API version:       1.56
+ Go version:        go1.26.8
+ Git commit:        4a63305
+ Built:             Tue Sep 15 16:24:42 2026
+ OS/Arch:           linux/amd64
+ Context:           default
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker info
+[?2004lClient:
+ Version:    29.8.1
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  agent: Docker AI Agent Runner (Docker Inc.)
+    Version:  v1.141.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-agent
+  ai: Docker AI Agent - Ask Gordon (Docker Inc.)
+    Version:  v1.31.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-ai
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.37.1
+    Path:     /usr/local/lib/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.5.1
+    Path:     /usr/local/lib/docker/cli-plugins/docker-compose
+  debug: Get a shell into any image or container (Docker Inc.)
+    Version:  0.0.47
+    Path:     /usr/local/lib/docker/cli-plugins/docker-debug
+  desktop: Docker Desktop commands (Docker Inc.)
+    Version:  v0.4.4
+    Path:     /usr/local/lib/docker/cli-plugins/docker-desktop
+  dhi: CLI for managing Docker Hardened Images (Docker Inc.)
+    Version:  v0.0.7
+    Path:     /usr/local/lib/docker/cli-plugins/docker-dhi
+  extension: Manages Docker extensions (Docker Inc.)
+    Version:  v0.2.31
+    Path:     /usr/local/lib/docker/cli-plugins/docker-extension
+  init: Creates Docker-related starter files for your project (Docker Inc.)
+    Version:  v1.4.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-init
+  mcp: Docker MCP Plugin (Docker Inc.)
+    Version:  v0.43.3
+    Path:     /usr/local/lib/docker/cli-plugins/docker-mcp
+  model: Docker Model Runner (Docker Inc.)
+    Version:  v1.2.6
+    Path:     /usr/local/lib/docker/cli-plugins/docker-model
+  offload: Docker Offload (Docker Inc.)
+    Version:  v0.6.33
+    Path:     /usr/local/lib/docker/cli-plugins/docker-offload
+  pass: Docker Pass Secrets Manager Plugin (beta) (Docker Inc.)
+    Version:  v0.2.2
+    Path:     /usr/local/lib/docker/cli-plugins/docker-pass
+  sandbox: "docker sandbox" is deprecated, use Docker Sandboxes instead (Docker Inc.)
+    Version:  v0.13.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-sandbox
+  scout: Docker Scout (Docker Inc.)
+    Version:  v1.24.0
+    Path:     /usr/local/lib/docker/cli-plugins/docker-scout
+
+Server:
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker run hello-world
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker ps -a
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ 
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ # 3. Imágenes y contenedores interactivos (5.8.4 a 5.8.6)
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker pull alpine:3.20
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker images
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker run -it --name prueba alpine:3.20 sh -c 'cat /etc/os-release; hostname; ls /'
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker run -it --name prueba2 alpine:3.20 sh -c 'echo "dato importante" > /tmp/nota.txt; cat /tmp/nota.txt'
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker rm prueba prueba2
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ 
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ # 4. Volúmenes y Redes (5.8.7)
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker volume create datos-prueba
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker run --rm -v datos-prueba:/datos alpine:3.20 sh -c 'echo "dato importante" > /datos/nota.txt'
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker run --rm -v datos-prueba:/datos alpine:3.20 sh -c 'cat /datos/nota.txt' [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K'
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker volume ls
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker volume inspect datos-prueba
+[?2004l[]
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ 
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ # 5. Aplicaciones web y logs (5.8.8 y 5.8.9)
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker run -d --name web -p 8080:80 nginx:alpine
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker ps
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker port web
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker logs web
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker logs --tail 3 web
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker exec web ls /usr/share/nginx/html
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker stats --no-stream web
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ 
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ # 6. Limpieza final (5.8.10)
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker stop web
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker rm web
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker volume rm datos-prueba
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ docker system df
+[?2004lpermission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ 
+[?2004l[?2004h[1;32mnight@Home[0m [1;34m~/oracle-database-lab[0m [1;35m(chore/3-install-oracle-environment)[0m
+$ exit
+[?2004lexit
+
+Script done on 2026-09-30 18:48:55+02:00 [COMMAND_EXIT_CODE="1"]
