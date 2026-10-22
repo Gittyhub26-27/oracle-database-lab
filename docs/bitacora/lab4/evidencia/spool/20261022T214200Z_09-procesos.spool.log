@@ -1,0 +1,42 @@
+SQL Format Cleared
+===== 1. Cuántos procesos tiene la instancia y de qué tipo =====
+
+TIPO        PROCESOS_ORACLE PROCESOS_LINUX
+----------- --------------- --------------
+background               88             55
+servidor                  4              4
+===== 2. Los procesos obligatorios y los que verás en el examen =====
+
+PNAME  SPID     DESCRIPTION                                     
+------ -------- ------------------------------------------------
+PMON   1593     process cleanup                                 
+LREG   1661     Listener Registration                           
+SMON   1647     System Monitor Process                          
+DBW0   1641     db writer process 0                             
+LGWR   1643     Redo etc.                                       
+CKPT   1645     checkpoint                                      
+MMON   1672     Manageability Monitor Process                   
+MMNL   1675     Manageability Monitor Process 2                 
+RECO   1659     distributed recovery                            
+ARC0   1744     Archival Process 0                              
+CJQ0   1946     Job Queue Coordinator                           
+CLMN   1597     process cleanup                                 
+DIAG   1623     diagnosibility process                          
+MMAN   1615     Memory Manager                                  
+PMAN   1637     process manager                                 
+VKTM   1605     Virtual Keeper of TiMe process                  
+===== 3. ¿Hay archivador (ARCn)? =====
+
+PROCESOS_ARCN
+-------------
+            4
+===== 4. Mi sesión y el proceso servidor que la atiende =====
+
+       SID    SERIAL# USERNAME     MACHINE        PROGRAM                            SPID    
+---------- ---------- ------------ -------------- ---------------------------------- --------
+       182      62897 C##OPS_RO    Home           SQLcl                              3342    
+===== 5. Todas las sesiones de usuario ahora mismo =====
+
+       SID USERNAME     STATUS   MACHINE        PROGRAM                            SPID    
+---------- ------------ -------- -------------- ---------------------------------- --------
+       182 C##OPS_RO    ACTIVE   Home           SQLcl                              3342    
