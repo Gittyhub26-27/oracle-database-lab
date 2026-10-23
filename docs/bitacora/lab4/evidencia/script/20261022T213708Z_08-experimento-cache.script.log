@@ -1,0 +1,14 @@
+===== 1. Tamaño en bloques de ACA_ESTUDIANTES =====
+
+TABLE_NAME	   NUM_ROWS	BLOCKS AVG_ROW_LEN
+---------------- ---------- ---------- -----------
+ACA_ESTUDIANTES       20000	   244		76
+===== 2. Vaciar la caché =====
+===== 3. Consultas en frío vs. en caliente =====
+Ronda 1 (cach?? fr??a)	  filas ACTIVO=17600 | lecturas l??gicas=247 | lecturas f??sicas=245
+Ronda 2 (cach?? caliente) filas ACTIVO=17600 | lecturas l??gicas=247 | lecturas f??sicas=0
+===== 4. Bloques residentes en Buffer Cache =====
+
+OBJECT_NAME	 BLOQUES_EN_CACHE
+---------------- ----------------
+ACA_ESTUDIANTES 	      245

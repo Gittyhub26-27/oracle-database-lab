@@ -1,0 +1,32 @@
+== 1. La INSTANCIA: procesos + memoria ==
+
+[1mINSTANCE_NAME[m    [1mHOST_NAME[m       [1mVERSION_FULL[m    [1mSTATUS[m    [1mDATABASE_STATUS[m    [1mARRANCADA[m              
+________________ _______________ _______________ _________ __________________ ______________________ 
+FREE             dab9dff19b0c    23.26.3.0.0     OPEN      ACTIVE             2026-10-22 21:05:59    
+== 2. La BASE DE DATOS: archivos en disco ==
+
+         [1mDBID[m [1mNAME[m    [1mDB_UNIQUE_NAME[m    [1mCDB[m    [1mLOG_MODE[m      [1mOPEN_MODE[m     [1mPLATFORM_NAME[m       [1mCREADA[m        
+_____________ _______ _________________ ______ _____________ _____________ ___________________ _____________ 
+   1509902213 FREE    FREE              YES    ARCHIVELOG    READ WRITE    Linux x86 64-bit    2026-07-05    
+== 3. ¿Dónde estoy y con quién? ==
+
+[1mCONTENEDOR[m    [1mSERVICIO[m    [1mUSUARIO[m      [1mSID[m    
+_____________ ___________ ____________ ______ 
+CDB$ROOT      free        C##OPS_RO    217    
+== 4. Servicios que la instancia ofrece ==
+
+   [1mCON_ID[m [1mNAME[m              [1mNETWORK_NAME[m    
+_________ _________________ _______________ 
+        1 SYS$BACKGROUND                    
+        1 SYS$USERS                         
+        1 free              free            
+        1 freeXDB           freeXDB         
+        3 freepdb1          freepdb1        
+== 5. Los archivos que forman la base de datos ==
+
+[1mTIPO[m                   [1mN[m      [1mMB[m 
+__________________ _____ _______ 
+datafiles             16    4039 
+tempfiles              3      60 
+redo (miembros)        3         
+control files          2         

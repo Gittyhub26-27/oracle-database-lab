@@ -1,0 +1,16 @@
+== 1. Procesos de la instancia FREE ==
+9577                54321               71968               db_pmon_FREE
+9581                54321               68912               db_clmn_FREE
+9585                54321               70228               db_psp0_FREE
+9589                54321               75968               db_vktm_FREE
+9596                54321               71672               db_gen0_FREE
+9600                54321               106772              db_mman_FREE
+9606                54321               69816               db_gen2_FREE
+9608                54321               68608               db_diag_FREE
+9612                54321               75020               db_ofsd_FREE
+9614                54321               74764               db_gwpd_FREE
+9616                54321               102840              db_dbrm_FREE
+9618                54321               69456               db_vkrm_FREE
+9621                54321               70552               db_pman_FREE
+9624                54321               80356               db_dia0_FREE
+9626                54321               88060               db_dbw0_FREE

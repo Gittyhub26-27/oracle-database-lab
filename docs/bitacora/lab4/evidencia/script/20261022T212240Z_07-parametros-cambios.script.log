@@ -1,0 +1,40 @@
+===== 1. SCOPE MEMORY =====
+
+NAME		 EN_MEMORIA   EN_SPFILE
+---------------- ------------ ----------------
+open_cursors	 400	      300
+===== 2. SCOPE BOTH =====
+
+NAME		 EN_MEMORIA   EN_SPFILE        UPDATE_COMMENT
+---------------- ------------ ---------------- ----------------------------------------
+open_cursors	 500	      500	       Lab4: prueba SCOPE=BOTH
+Deshacer:
+===== 3. Parámetro ESTÁTICO (ORA-02095 esperado) =====
+ALTER SYSTEM SET db_files = 300 SCOPE = MEMORY
+                 *
+ERROR at line 1:
+ORA-02095: specified initialization parameter cannot be modified
+Help: https://docs.oracle.com/error-help/db/ora-02095/
+
+
+SCOPE=SPFILE para estáticos:
+
+NAME		 EN_MEMORIA   EN_SPFILE
+---------------- ------------ ----------------
+db_files	 200	      300
+Deshacer con RESET:
+===== 4. Parámetros a nivel de PDB =====
+
+CONTENEDOR NAME 	    EN_MEMORIA
+---------- ---------------- ------------
+FREEPDB1   open_cursors     350
+ORA-65040 esperado (no se puede cambiar parámetro de CDB desde PDB):
+ALTER SYSTEM SET processes = 300 SCOPE = SPFILE
+*
+ERROR at line 1:
+ORA-65040: Operation is not allowed from within a pluggable database.
+Help: https://docs.oracle.com/error-help/db/ora-65040/
+
+
+Deshacer en PDB:
+===== 5. Generar PFILEs para versionar =====
