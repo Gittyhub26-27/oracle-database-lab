@@ -1,0 +1,8 @@
+Script started on 2026-09-30 18:55:11+02:00 [COMMAND="bash scripts/deployment/env/04-descargar-imagen.sh" TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="120" LINES="41"]
+== Descarga o confirmacion de la imagen ==
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+
+== Imagen local y su digest (version exacta instalada) ==
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+
+Script done on 2026-09-30 18:55:12+02:00 [COMMAND_EXIT_CODE="1"]
