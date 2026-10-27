@@ -42,4 +42,4 @@ export ORDS_HOME="/opt/oracle/ords"
 export ORDS_CONFIG="/etc/ords/config"
 export ORDS_LOGS="/var/log/ords"
 export ORDS_PORT=8080
->>>>>>> 6aee3c297cf52b7a2be0d7417103372b05eb9680
+export EVID_LAB5="docs/bitacora/lab5/evidencia" # evidencia del Lab 5
