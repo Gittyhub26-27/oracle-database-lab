@@ -1,0 +1,7 @@
+ALTER SESSION SET CONTAINER FREEPDB1
+                            *
+ERROR at line 1:
+ORA-02000: missing = keyword
+Help: https://docs.oracle.com/error-help/db/ora-02000/
+
+
