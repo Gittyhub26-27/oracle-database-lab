@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
-# scripts/deployment/env/08-aplicar-migraciones.sh versión 2 (Lab 4)
+# scripts/deployment/env/08-aplicar-migraciones.sh versión 3 (Lab 5)
 set -euo pipefail
 source scripts/deployment/env/00-config.sh
-
-[ $# -ge 1 ] || { echo "Uso: $0 <migración> [migración...] (nombre sin .sql)"; exit 2; }
-DEST="docs/bitacora/lab4/evidencia/spool"
+[ $# -ge 1 ] || { echo "Uso: $0 <migración> [migración...]"; exit 2; }
+DEST="${EVID_LAB5:-docs/bitacora/lab5/evidencia}/spool"
 mkdir -p "$DEST"
-
 for MIG in "$@"; do
   FILE="database/migrations/$MIG.sql"
   [ -f "$FILE" ] || { echo "ERROR: no existe $FILE"; exit 2; }
