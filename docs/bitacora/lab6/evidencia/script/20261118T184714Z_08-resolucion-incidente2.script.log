@@ -1,0 +1,38 @@
+== EVIDENCIA alumno=E008 hora=2026-11-18T18:47:14Z origen=08-resolucion-incidente2
+== EVIDENCIA contenedor=dab9dff19b0c dbid=1509902213 arranque=2026-11-18T18:02:09 scn=11435070
+
+Session altered.
+
+BEGIN DBMS_SERVICE.START_SERVICE('academia_app'); END;
+
+*
+ERROR at line 1:
+ORA-44305: service academia_app is running
+ORA-06512: at "SYS.DBMS_SYS_ERROR", line 86
+ORA-06512: at "SYS.DBMS_SERVICE_ERR", line 27
+ORA-06512: at "SYS.DBMS_SERVICE", line 636
+ORA-06512: at line 1
+Help: https://docs.oracle.com/error-help/db/ora-44305/
+
+
+ALTER SYSTEM KILL SESSION '59,10369' IMMEDIATE
+*
+ERROR at line 1:
+ORA-00026: missing or invalid session ID
+Help: https://docs.oracle.com/error-help/db/ora-00026/
+
+
+
+NAME
+----------------------------------------------------------------
+NETWORK_NAME
+--------------------------------------------------------------------------------
+academia_app
+academia_app
+
+
+
+SESIONES_BLOQUEADAS
+-------------------
+		  0
+
