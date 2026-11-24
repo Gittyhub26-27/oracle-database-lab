@@ -1,0 +1,36 @@
+== EVIDENCIA alumno=E008 hora=2026-11-18T18:24:12Z origen=07-archivos-criticos
+== EVIDENCIA contenedor=dab9dff19b0c dbid=1509902213 arranque=2026-11-18T18:02:09 scn=11431609
+SQL Format Cleared
+== 1. Control files (Lab 5, Parte J: tres copias) ==
+
+ARCHIVO              DONDE                                                          STATUS 
+-------------------- -------------------------------------------------------------- -------
+control file         /opt/oracle/oradata/FREE/control01.ctl                                
+control file         /opt/oracle/oradata/FREE/control02.ctl                                
+== 2. Redo en línea: grupos y miembros (Lab 5, Parte K: dos miembros por grupo) ==
+
+    GROUP#  SEQUENCE#         MB    MEMBERS STATUS           ARC MEMBER                                      
+---------- ---------- ---------- ---------- ---------------- --- --------------------------------------------
+         1         10        200          1 INACTIVE         YES /opt/oracle/oradata/FREE/redo01.log         
+         2         11        200          1 INACTIVE         YES /opt/oracle/oradata/FREE/redo02.log         
+         3         12        200          1 CURRENT          NO  /opt/oracle/oradata/FREE/redo03.log         
+== 3. SPFILE, password file y redo archivado ==
+
+ARCHIVO              DONDE                                                         
+-------------------- --------------------------------------------------------------
+spfile               /opt/oracle/product/26ai/dbhomeFree/dbs/spfileFREE.ora        
+password file        /opt/oracle/product/26ai/dbhomeFree/dbs/orapwFREE             
+
+LOG_MODE     ARCHIVADOS_EN_DISCO
+------------ -------------------
+ARCHIVELOG                    11
+== 4. ¿Hay copia RMAN reciente? (la del simulacro D del Lab 5) ==
+
+ULTIMA_PIEZA_RMA     PIEZAS
+---------------- ----------
+2026-11-18 18:24          3
+== 5. ¿Quién puede conectarse como SYS* por el password file? ==
+
+USERNAME     SYSDB SYSOP SYSBA SYSDG SYSKM ACCOUNT_STATUS                
+------------ ----- ----- ----- ----- ----- ------------------------------
+SYS          TRUE  TRUE  FALSE FALSE FALSE OPEN                          
